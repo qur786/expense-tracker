@@ -1,11 +1,11 @@
 import "./ExpenseItem.css";
-export const ExpenseItem = () => {
+export const ExpenseItem = (props) => {
     return (
         <div className="expense-item">
-            <h2>Date</h2>
+            <h2>{props.date.toISOString()}</h2>
             <div className="expense-item__description">
-                <h2 >Title</h2>
-                <div className="expense-item__price">&#8377; 299</div>
+                <h2>{props.title}</h2>
+                <div className="expense-item__price">&#8377; {props.amount}</div>
             </div>
         </div>
     )
