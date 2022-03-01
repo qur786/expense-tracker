@@ -30,7 +30,7 @@ export function App() {
             {
                 expenses.map((el) => <ExpenseItem title={el.title} amount={el.amount} date={el.date} />)
             }
-            
+
         </div>
     )
 };
