@@ -1,4 +1,5 @@
 import { Expenses } from "./components/Expense-UI/Expenses";
+import { ExpenseInput } from "./components/Expense-Input-UI/ExpenseInput";
 
 export function App() {
     const expenses = [
@@ -25,9 +26,7 @@ export function App() {
     ]
     return (
         <div>
-            <h2>
-                Expense Tracker
-            </h2>
+             <ExpenseInput />
             <Expenses items={expenses} />
         </div>
     )
