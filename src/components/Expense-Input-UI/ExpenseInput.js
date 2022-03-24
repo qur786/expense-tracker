@@ -3,8 +3,8 @@ import "./ExpenseInput.css";
 
 export function ExpenseInput() {
     return (
-            <div class="new-expense">
-                <ExpenseForm />
-            </div>
-            );
+        <div class="new-expense">
+            <ExpenseForm />
+        </div>
+    );
 }
