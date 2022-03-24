@@ -27,10 +27,16 @@ export function App() {
             amount: 10000,
             date: new Date(2021, 5, 4),
         },
-    ]
+    ];
+
+    const addExpenseHandler = (expense) => {
+        expenses.push(expense);
+        console.log(expenses)
+    }
+
     return (
         <div>
-            <ExpenseInput />
+            <ExpenseInput onAddExpense={addExpenseHandler} />
             <Expenses items={expenses} />
         </div>
     )
