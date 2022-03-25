@@ -11,7 +11,7 @@ export function ExpenseInput(props) {
     }
 
     return (
-        <div class="new-expense">
+        <div className="new-expense">
             <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
         </div>
     );
