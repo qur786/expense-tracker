@@ -5,7 +5,7 @@ import { ExpenseFilter } from "./ExpenseFilter";
 import "./Expenses.css";
 
 export const Expenses = (props) => {
-    const [ filteredItems, setFilteredItems ] = useState(props.items);
+    const [filteredItems, setFilteredItems] = useState(props.items);
     const yearChangeHandler = (year) => {
         const filter = props.items.filter((e) => e.date.getFullYear() === year);
         setFilteredItems(filter);
@@ -14,7 +14,9 @@ export const Expenses = (props) => {
     return (
         <Card className="expenses">
             <ExpenseFilter onYearChange={yearChangeHandler} />
-            {filteredItems.map((e) => <ExpenseItem key={e.id} date={e.date} amount={e.amount} title={e.title} />)}
+            {filteredItems.length > 0 
+            ? filteredItems.map((e) => <ExpenseItem key={e.id} date={e.date} amount={e.amount} title={e.title} />) 
+            : <p>No Expense Found.</p>}
         </Card>
     )
 }
