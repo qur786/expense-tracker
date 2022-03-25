@@ -7,6 +7,8 @@
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
 }
 
 .new-expense button {
@@ -18,6 +20,7 @@
   color: white;
   border-radius: 12px;
   margin-right: 1rem;
+  align-self: center;
 }
 
 .new-expense button:hover,
@@ -35,4 +38,11 @@
 .new-expense button.alternative:hover,
 .new-expense button.alternative:active {
   background-color: #ddb3f8;
+}
+
+#new-expense__close {
+  align-self: flex-end;
+  background-color: maroon;
+  padding: 2px 5px;
+  border-radius: 0;
 }
