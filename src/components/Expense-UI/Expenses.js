@@ -16,7 +16,7 @@ export const Expenses = (props) => {
             <ExpenseFilter onYearChange={yearChangeHandler} />
             {filteredItems.length > 0 
             ? filteredItems.map((e) => <ExpenseItem key={e.id} date={e.date} amount={e.amount} title={e.title} />) 
-            : <p>No Expense Found.</p>}
+            : <p className="expenses__fallback">No Expense Found.</p>}
         </Card>
     )
 }
