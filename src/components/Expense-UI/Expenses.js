@@ -6,15 +6,15 @@ import { ExpenseChart } from "./ExpenseChart";
 import "./Expenses.css";
 
 export const Expenses = (props) => {
-    const [filteredItems, setFilteredItems] = useState(props.items);
+    const [selectedYear, setSelectedYear] = useState("2020");
     const yearChangeHandler = (year) => {
-        const filter = props.items.filter((e) => e.date.getFullYear() === year);
-        setFilteredItems(filter);
+        setSelectedYear(year);
     };
+    const filteredItems = props.items.filter((e) => e.date.getFullYear().toString() === selectedYear);
 
     return (
         <Card className="expenses">
-            <ExpenseFilter onYearChange={yearChangeHandler} />
+            <ExpenseFilter valueYear={selectedYear} onYearChange={yearChangeHandler} />
             <ExpenseChart filteredItems={filteredItems} />
             {filteredItems.length > 0
                 ? filteredItems.map((e) => <ExpenseItem
