@@ -17,7 +17,7 @@ export function ExpenseInput(props) {
             {openForm === true 
             ? <>
             <button id="new-expense__close" onClick={handleOpenForm}>X</button>
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} /> 
+            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
             </>
             : <button onClick={handleOpenForm}>Add Expense</button>}
         </div>

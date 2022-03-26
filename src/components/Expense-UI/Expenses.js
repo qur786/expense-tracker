@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card } from "../Generic-UI/Card";
 import { ExpenseItem } from "./ExpenseItem"
 import { ExpenseFilter } from "./ExpenseFilter";
+import { ExpenseChart } from "./ExpenseChart";
 import "./Expenses.css";
 
 export const Expenses = (props) => {
@@ -14,9 +15,15 @@ export const Expenses = (props) => {
     return (
         <Card className="expenses">
             <ExpenseFilter onYearChange={yearChangeHandler} />
-            {filteredItems.length > 0 
-            ? filteredItems.map((e) => <ExpenseItem key={e.id} date={e.date} amount={e.amount} title={e.title} />) 
-            : <p className="expenses__fallback">No Expense Found.</p>}
+            <ExpenseChart filteredItems={filteredItems} />
+            {filteredItems.length > 0
+                ? filteredItems.map((e) => <ExpenseItem
+                    key={e.id}
+                    date={e.date}
+                    amount={e.amount}
+                    title={e.title}
+                />)
+                : <p className="expenses__fallback">No Expense Found.</p>}
         </Card>
     )
 }
