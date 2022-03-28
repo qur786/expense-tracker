@@ -3,7 +3,7 @@ import { Card } from "../Generic-UI/Card";
 import { ExpenseItem } from "./ExpenseItem"
 import { ExpenseFilter } from "./ExpenseFilter";
 import { ExpenseChart } from "./ExpenseChart";
-import "./Expenses.css";
+import styles from "./Expenses.css";
 
 export const Expenses = (props) => {
     const [selectedYear, setSelectedYear] = useState("2020");
@@ -13,7 +13,7 @@ export const Expenses = (props) => {
     const filteredItems = props.items.filter((e) => e.date.getFullYear().toString() === selectedYear);
 
     return (
-        <Card className="expenses">
+        <Card className={styles.expenses}>
             <ExpenseFilter valueYear={selectedYear} onYearChange={yearChangeHandler} />
             <ExpenseChart filteredItems={filteredItems} />
             {filteredItems.length > 0
@@ -23,7 +23,7 @@ export const Expenses = (props) => {
                     amount={e.amount}
                     title={e.title}
                 />)
-                : <p className="expenses__fallback">No Expense Found.</p>}
+                : <p className={styles.expenses__fallback}>No Expense Found.</p>}
         </Card>
     )
 }

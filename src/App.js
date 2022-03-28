@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Expenses } from "./components/Expense-UI/Expenses";
 import { ExpenseInput } from "./components/Expense-Input-UI/ExpenseInput";
-import "./App.css";
+import styles from "./App.css";
 
 export function App() {
     const [expenses, setExpenses] = useState([]);
@@ -13,7 +13,7 @@ export function App() {
 
     return (
         <div>
-            <h1 className="app-title">Expense Tracker</h1>
+            <h1 className={styles["app-title"]}>Expense Tracker</h1>
             <ExpenseInput onAddExpense={addExpenseHandler} />
             <Expenses items={expenses} />
         </div>
