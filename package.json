@@ -13,7 +13,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d dist public"
   },
   "devDependencies": {
