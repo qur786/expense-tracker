@@ -1,5 +1,6 @@
 import path, { dirname } from "path";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
+import CopyPlugin from "copy-webpack-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -7,6 +8,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export default {
     entry: "./src/index.js",
     mode: "development",
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: "./public/index.html", to: ""
+                }
+            ]
+        })
+    ],
     module: {
         rules: [
             {
@@ -15,19 +25,21 @@ export default {
                 resolve: {
                     fullySpecified: false,
                 },
-                options: { presets: [ "@babel/preset-react", "@babel/preset-env"]}
+                options: { presets: ["@babel/preset-react", "@babel/preset-env"] }
             },
             {
                 test: /\.css$/,
-                use: ["style-loader",{ loader: "css-loader", options: {
-                    modules: true,
-                    importLoaders: 1,
-                }}]
+                use: ["style-loader", {
+                    loader: "css-loader", options: {
+                        modules: true,
+                        importLoaders: 1,
+                    }
+                }]
             }
         ]
     },
     resolve: {
-        extensions: [ "*", ".js", ".jsx"],
+        extensions: ["*", ".js", ".jsx"],
     },
     output: {
         path: path.resolve(__dirname, "dist/"),
